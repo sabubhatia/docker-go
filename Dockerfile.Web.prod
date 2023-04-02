@@ -1,0 +1,11 @@
+FROM golang:alpine AS builder
+WORKDIR '/app'
+COPY *.go ./
+COPY *.mod ./
+RUN go build -v -o /build/webapp
+COPY ./public/* /build/public/
+
+FROM ubuntu
+WORKDIR '/app'
+COPY --from=builder /build ./
+CMD ["./webapp"]

@@ -1,0 +1,13 @@
+FROM golang:alpine AS builder
+WORKDIR '/app/'
+COPY *.go ./
+COPY *.mod ./
+RUN go build -v -o ./build/webapp
+COPY ./public ./build/public
+
+
+FROM nginx
+WORKDIR '/app/build'
+COPY --from=builder /app/build ./
+EXPOSE 8081
+CMD ["./webapp"]

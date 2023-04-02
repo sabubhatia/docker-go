@@ -1,0 +1,4 @@
+FROM ubuntu/nginx
+RUN apt-get -y update; apt-get -y install curl
+RUN apt-get -y update; apt-get -y install dnsutils
+COPY ./nginx/nginx.conf /etc/nginx/

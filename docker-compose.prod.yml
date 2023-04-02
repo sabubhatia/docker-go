@@ -1,0 +1,20 @@
+version: '3.9'
+services:
+  webapp:
+    build:  
+      context: .
+      dockerfile: Dockerfile.Web.prod
+    ports:
+      - "8081"
+    deploy:
+      replicas: 15
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.Ngnix.prod
+    depends_on:
+      - webapp
+    restart: always
+    ports:
+      - "8080:8080"
+    container_name: nginx
