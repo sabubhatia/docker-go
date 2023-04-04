@@ -6,6 +6,8 @@ RUN go build -v -o /build/webapp
 COPY ./public/* /build/public/
 
 FROM ubuntu
+RUN apt-get -y update; apt-get -y install curl
+RUN apt-get -y update; apt-get -y install dnsutils
 WORKDIR '/app'
 COPY --from=builder /build ./
 CMD ["./webapp"]
