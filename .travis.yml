@@ -7,5 +7,5 @@ before_install:
 
 script:
  # - docker run sabusingh.bhatia/docker-go go test . -v -test.benchmem -cover
- # - docker-compose -f docker-compose.yml up
+  - docker-compose -f docker-compose.yml up
 
