@@ -9,5 +9,5 @@ COPY ./public ./build/public
 FROM nginx
 WORKDIR '/app/build'
 COPY --from=builder /app/build ./
-EXPOSE 8081
+EXPOSE 8080
 CMD ["./webapp"]
