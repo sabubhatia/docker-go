@@ -1,9 +1,0 @@
-version:  '3.0'
-services:
-  tests:
-    build:
-      context:  .
-      dockerfile: Dockerfile.dev
-    volumes:
-      - .:/app
-    command:  ["go", "test", "-v", "-cover", "-test.benchmem", "."]
