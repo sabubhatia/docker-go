@@ -1,17 +1,9 @@
 version:  '3.0'
 services:
-  webapp:
-    build:  
-      context: .
-      dockerfile: Dockerfile.dev
-    ports:
-      - "8081:8081"
-    volumes:
-      - .:/app
   tests:
     build:
       context:  .
       dockerfile: Dockerfile.dev
     volumes:
       - .:/app
-    command:  ["go", "test", "-v", "."]
+    command:  ["go", "test", "-v", "-cover", "-test.benchmem", "."]
