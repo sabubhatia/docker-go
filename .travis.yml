@@ -9,16 +9,15 @@ script:
  # - docker run sabusingh.bhatia/docker-go go test . -v -test.benchmem -cover
   - docker-compose -f docker-compose.dev.yml up
 
-  deploy:
-    provider: elasticbeanstalk
-    region: "us-east-1"
-    app: "docker-go2"
-    env: "dockergo2-env"
-    bucket_name: elasticbeanstalk-us-east-1-620375131649
-    bucket_path: "docker-go2"
-    on:
-      branch: master
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: "$AWS_SECRET_ACCESS_KEY"
-
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "docker-go2"
+  env: "dockergo2-env"
+  bucket_name: elasticbeanstalk-us-east-1-620375131649
+  bucket_path: "docker-go2"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: "$AWS_SECRET_ACCESS_KEY"
 
