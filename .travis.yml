@@ -7,13 +7,13 @@ before_install:
 
 script:
 #  - docker run sabusingh.bhatia/webapp go test . -v -test.benchmem -cover
-  - docker-compose -f docker-compose.dev.yml up
+  - docker-compose -f docker-compose.dev.yml up 
 
 deploy:
   provider: elasticbeanstalk
   region: "us-east-1"
-  app: "docker-go2"
-  env: "dockergo2-env"
+  app: "docker-go"
+  env: "dockergo-env"
   bucket_name: elasticbeanstalk-us-east-1-620375131649
   bucket_path: "docker-go2"
   on:

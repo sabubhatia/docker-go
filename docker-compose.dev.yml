@@ -5,6 +5,4 @@ services:
       context:  .
       dockerfile: Dockerfile.dev
     image: sabusingh.bhatia/webapp_test
-    volumes:
-      - .:/app
     command:  ["go", "test", "-v", "-cover", "-test.benchmem", "."]
