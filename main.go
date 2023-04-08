@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-var hnPid string;
+var hnPid string
 
 func server() http.Handler {
 	mux := http.NewServeMux()
@@ -36,12 +36,12 @@ func frontend(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	if _,  ret := os.LookupEnv("HOSTNAME"); !ret {
+	if _, ret := os.LookupEnv("HOSTNAME"); !ret {
 		log.Fatal("HOSTNAME variable is not present in the env")
 	}
 	hnPid = fmt.Sprintf("%s_%d", os.Getenv("HOSTNAME"), os.Getpid())
 
-	log.Println(hnPid, " listening on port 8081...")
+	log.Println(hnPid, " listening on port 8081......")
 	if err := http.ListenAndServe(":8081", server()); err != nil {
 		log.Fatal(err)
 	}

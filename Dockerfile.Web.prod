@@ -10,4 +10,5 @@ RUN apt-get -y update; apt-get -y install curl
 RUN apt-get -y update; apt-get -y install dnsutils
 WORKDIR '/app'
 COPY --from=builder /build ./
+EXPOSE 8081
 CMD ["./webapp"]
